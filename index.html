@@ -358,11 +358,54 @@
     .flinks a:hover{color:var(--red)}
     .fcopy{color:rgba(255,255,255,.3);font-size:.73rem}
 
+    /* ══ BLOG MODAL ══ */
+    .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:1000;display:none;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto;backdrop-filter:blur(3px)}
+    .modal-overlay.open{display:flex}
+    .modal-box{background:var(--white);border-radius:16px;max-width:780px;width:100%;margin:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);animation:modalIn .3s ease;position:relative;overflow:hidden}
+    @keyframes modalIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    .modal-hero{height:220px;display:flex;align-items:center;justify-content:center;font-size:4rem;position:relative}
+    .modal-cat-badge{position:absolute;top:16px;left:16px;background:var(--red);color:#fff;font-size:.7rem;font-weight:800;padding:4px 14px;border-radius:20px;text-transform:uppercase;letter-spacing:.5px}
+    .modal-date-badge{position:absolute;top:16px;right:56px;background:rgba(0,0,0,.4);color:#fff;font-size:.7rem;padding:4px 12px;border-radius:20px}
+    .modal-close{position:absolute;top:12px;right:12px;width:34px;height:34px;background:rgba(0,0,0,.4);color:#fff;border:none;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:10}
+    .modal-close:hover{background:var(--red)}
+    .modal-body{padding:28px 30px 32px}
+    .modal-body h2{font-size:1.3rem;font-weight:900;color:var(--navy);line-height:1.35;margin-bottom:14px}
+    .modal-meta{display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+    .modal-author{display:flex;align-items:center;gap:8px}
+    .modal-av{width:30px;height:30px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;color:#fff}
+    .modal-content{font-size:.9rem;color:#444;line-height:1.85}
+    .modal-content h3{font-size:1rem;font-weight:800;color:var(--navy);margin:20px 0 8px}
+    .modal-content p{margin-bottom:14px}
+    .modal-content ul{margin:10px 0 14px 20px}
+    .modal-content ul li{margin-bottom:6px}
+    .modal-content .highlight{background:#fff8e1;border-left:3px solid var(--gold);padding:12px 16px;border-radius:0 8px 8px 0;margin:16px 0;font-size:.88rem}
+    .modal-footer{margin-top:24px;padding-top:18px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+    .btn-platform{background:var(--orange);color:#fff;padding:10px 24px;border-radius:8px;font-weight:800;font-size:.86rem;border:none;cursor:pointer;transition:all .2s;box-shadow:0 4px 14px rgba(255,107,0,.3)}
+    .btn-platform:hover{transform:scale(1.04)}
+
+    /* ══ YOUTUBE SECTION ══ */
+    .yt-section{background:linear-gradient(135deg,#0f0f0f,#1a1a2e);padding:36px 5%;margin-top:10px}
+    .yt-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+    @media(max-width:700px){.yt-inner{grid-template-columns:1fr}}
+    .yt-text h2{color:#fff;font-size:1.4rem;font-weight:900;margin-bottom:10px;line-height:1.3}
+    .yt-text h2 span{color:#FF0000}
+    .yt-text p{color:rgba(255,255,255,.65);font-size:.88rem;line-height:1.65;margin-bottom:20px}
+    .yt-stats{display:flex;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+    .ys{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);padding:10px 16px;border-radius:8px;text-align:center}
+    .ys strong{display:block;color:#fff;font-size:1rem;font-weight:900}
+    .ys span{font-size:.68rem;color:rgba(255,255,255,.5)}
+    .btn-subscribe{background:#FF0000;color:#fff;padding:12px 28px;border-radius:8px;font-weight:900;font-size:.92rem;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;box-shadow:0 6px 20px rgba(255,0,0,.35);transition:transform .2s,box-shadow .2s;text-decoration:none}
+    .btn-subscribe:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(255,0,0,.45)}
+    .yt-video{border-radius:14px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.4);aspect-ratio:16/9;width:100%}
+    .yt-video iframe{width:100%;height:100%;border:none;display:block}
+
     @media(max-width:600px){
       .nav-search{display:none}
       .bcard{flex-direction:column}.bth{width:100%;min-width:100%;height:130px}
       .rstats{grid-template-columns:1fr 1fr}
       .tbar{top:100px}
+      .modal-body{padding:20px}
+      .modal-hero{height:160px}
     }
   </style>
 </head>
@@ -427,6 +470,46 @@
     </div>
   </div>
 
+  <!-- YouTube Section -->
+  <div class="yt-section">
+    <div class="yt-inner">
+      <div class="yt-text">
+        <h2>📺 Subscribe Our <span>YouTube</span> Channel</h2>
+        <p>Free video lectures, current affairs, exam tips and live sessions for JKSSB, SSC, BANK & JKPSC — all on our YouTube channel. Subscribe now and never miss an update!</p>
+        <div class="yt-stats">
+          <div class="ys"><strong>500+</strong><span>Videos</span></div>
+          <div class="ys"><strong>Free</strong><span>All Content</span></div>
+          <div class="ys"><strong>Daily</strong><span>New Videos</span></div>
+        </div>
+        <a href="https://youtu.be/2fMXeteOX74?si=zdbfgJESaVVIt7Am" class="btn-subscribe" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
+          Subscribe on YouTube
+        </a>
+      </div>
+      <div class="yt-video" onclick="window.open('https://youtu.be/2fMXeteOX74?si=zdbfgJESaVVIt7Am','_blank')" style="cursor:pointer;position:relative;background:#000;border-radius:14px;overflow:hidden;aspect-ratio:16/9;">
+        <!-- YouTube Thumbnail -->
+        <img
+          src="https://img.youtube.com/vi/2fMXeteOX74/maxresdefault.jpg"
+          alt="MindSpark Education YouTube Video"
+          style="width:100%;height:100%;object-fit:cover;display:block;opacity:0.85;transition:opacity .2s"
+          onerror="this.src='https://img.youtube.com/vi/2fMXeteOX74/hqdefault.jpg'"
+          onmouseover="this.style.opacity='1'"
+          onmouseout="this.style.opacity='0.85'"
+        />
+        <!-- Play Button Overlay -->
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;">
+          <div style="width:70px;height:70px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(255,0,0,.5);transition:transform .2s">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+        </div>
+        <!-- Watch Label -->
+        <div style="position:absolute;bottom:12px;left:0;right:0;text-align:center;pointer-events:none;">
+          <span style="background:rgba(0,0,0,.7);color:#fff;font-size:.78rem;font-weight:700;padding:5px 14px;border-radius:20px;">▶ Watch on YouTube</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Mock Test CTA -->
   <div class="test-cta">
     <div class="test-cta-text">
@@ -484,40 +567,40 @@
       <div class="blog-list" id="blogList">
 
         <!-- BLOG 1 FEATURED -->
-        <a href="https://mindsparkeducation.educrypt.ai/" class="bcard feat" data-cat="JKSSB" target="_blank">
+        <div class="bcard feat" data-cat="JKSSB" onclick="openBlog(0)">
           <div class="bth bg1"><span>📋</span><div class="blbl">JKSSB</div></div>
           <div class="bbd"><div><div class="bmt"><span class="bct">JKSSB</span><span class="bdt">📅 March 10, 2025</span></div><h2>JKSSB Junior Assistant Syllabus 2025 – Complete Topic-wise Guide</h2><p>Complete syllabus breakdown for JKSSB Junior Assistant 2025. Covers General English, Quantitative Aptitude, General Knowledge, and Computer Awareness with topic-wise weightage and best preparation strategy.</p></div><div class="bft"><div style="display:flex;align-items:center"><div class="bav">M</div><span class="ban">MindSpark Team</span></div><span class="brm">Read More →</span></div></div>
-        </a>
+        </div>
 
         <!-- BLOG 2 -->
-        <a href="https://mindsparkeducation.educrypt.ai/" class="bcard" data-cat="SSC" target="_blank">
+        <div class="bcard" data-cat="SSC" onclick="openBlog(1)">
           <div class="bth bg2"><span>📊</span><div class="blbl">SSC</div></div>
           <div class="bbd"><div><div class="bmt"><span class="bct">SSC</span><span class="bdt">📅 March 8, 2025</span></div><h2>SSC CGL 2025 Notification – Dates, Eligibility & Complete Syllabus</h2><p>SSC CGL 2025 notification details: important dates, eligibility, exam pattern, tier-wise syllabus and step-by-step application guide.</p></div><div class="bft"><div style="display:flex;align-items:center"><div class="bav">M</div><span class="ban">MindSpark Team</span></div><span class="brm">Read More →</span></div></div>
-        </a>
+        </div>
 
         <!-- BLOG 3 -->
-        <a href="https://mindsparkeducation.educrypt.ai/" class="bcard" data-cat="BANK" target="_blank">
+        <div class="bcard" data-cat="BANK" onclick="openBlog(2)">
           <div class="bth bg3"><span>🏦</span><div class="blbl">BANK</div></div>
           <div class="bbd"><div><div class="bmt"><span class="bct">BANK</span><span class="bdt">📅 March 5, 2025</span></div><h2>How to Prepare for BANK PO in 3 Months – Complete Strategy</h2><p>3-month study plan for IBPS PO and SBI PO covering Quant, Reasoning, English, GA and interview preparation tips from toppers.</p></div><div class="bft"><div style="display:flex;align-items:center"><div class="bav">M</div><span class="ban">MindSpark Team</span></div><span class="brm">Read More →</span></div></div>
-        </a>
+        </div>
 
         <!-- BLOG 4 -->
-        <a href="https://mindsparkeducation.educrypt.ai/" class="bcard" data-cat="Current Affairs" target="_blank">
+        <div class="bcard" data-cat="Current Affairs" onclick="openBlog(3)">
           <div class="bth bg4"><span>🌍</span><div class="blbl">Current Affairs</div></div>
           <div class="bbd"><div><div class="bmt"><span class="bct">Current Affairs</span><span class="bdt">📅 March 3, 2025</span></div><h2>March 2025 Monthly Current Affairs – JKSSB, SSC & BANK Special</h2><p>Important current affairs of March 2025 — National, International, Economy, Sports, Science and Awards all in one place.</p></div><div class="bft"><div style="display:flex;align-items:center"><div class="bav">M</div><span class="ban">MindSpark Team</span></div><span class="brm">Read More →</span></div></div>
-        </a>
+        </div>
 
         <!-- BLOG 5 -->
-        <a href="https://mindsparkeducation.educrypt.ai/" class="bcard" data-cat="JKPSC" target="_blank">
+        <div class="bcard" data-cat="JKPSC" onclick="openBlog(4)">
           <div class="bth bg5"><span>📜</span><div class="blbl">JKPSC</div></div>
           <div class="bbd"><div><div class="bmt"><span class="bct">JKPSC</span><span class="bdt">📅 Feb 28, 2025</span></div><h2>JKPSC CCE 2025 – Syllabus, Pattern & How to Start Preparation</h2><p>Full guide for JKPSC Combined Competitive Exam 2025. Prelims and mains pattern, strategy, recommended books and free resources.</p></div><div class="bft"><div style="display:flex;align-items:center"><div class="bav">M</div><span class="ban">MindSpark Team</span></div><span class="brm">Read More →</span></div></div>
-        </a>
+        </div>
 
         <!-- BLOG 6 -->
-        <a href="https://mindsparkeducation.educrypt.ai/" class="bcard" data-cat="Study Tips" target="_blank">
+        <div class="bcard" data-cat="Study Tips" onclick="openBlog(5)">
           <div class="bth bg6"><span>💡</span><div class="blbl">Study Tips</div></div>
           <div class="bbd"><div><div class="bmt"><span class="bct">Study Tips</span><span class="bdt">📅 Feb 24, 2025</span></div><h2>10 Proven Study Techniques to Score High in Government Exams 2025</h2><p>Time management, revision strategy, mock test analysis and mental prep tips from students who cleared JKSSB, SSC and BANK in first attempt.</p></div><div class="bft"><div style="display:flex;align-items:center"><div class="bav">M</div><span class="ban">MindSpark Team</span></div><span class="brm">Read More →</span></div></div>
-        </a>
+        </div>
 
         <!-- ★ ADD NEW BLOGS ABOVE THIS LINE ★ -->
       </div>
@@ -633,6 +716,26 @@
   </div>
 </div><!-- /test -->
 
+<!-- ══ BLOG MODAL ══ -->
+<div class="modal-overlay" id="blogModal" onclick="closeModal(event)">
+  <div class="modal-box" id="modalBox">
+    <div class="modal-hero" id="mHero"></div>
+    <button class="modal-close" onclick="closeBlogModal()">✕</button>
+    <div class="modal-body">
+      <div class="modal-meta">
+        <div class="modal-author"><div class="modal-av">M</div><span style="font-size:.78rem;color:var(--muted);margin-left:4px">MindSpark Team</span></div>
+        <span id="mDate" style="font-size:.74rem;color:var(--muted)"></span>
+      </div>
+      <h2 id="mTitle"></h2>
+      <div class="modal-content" id="mContent"></div>
+      <div class="modal-footer">
+        <span style="font-size:.78rem;color:var(--muted)">📚 Read full content on our platform</span>
+        <button class="btn-platform" onclick="window.open('https://mindsparkeducation.educrypt.ai/','_blank')">Visit Full Platform →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Newsletter + Footer -->
 <div class="nl">
   <h2>📬 Get Free Study Material</h2>
@@ -651,7 +754,245 @@
 <a href="https://mindsparkeducation.educrypt.ai/" class="adm" target="_blank">Admission Enquiry</a>
 
 <script>
-// ══ TAB SWITCHER ══
+// ══ BLOG DATA ══
+var BLOGS = [
+  {
+    emoji:'📋', bg:'bg1', cat:'JKSSB', date:'March 10, 2025',
+    title:'JKSSB Junior Assistant Syllabus 2025 – Complete Topic-wise Guide',
+    content:`
+      <p>The JKSSB Junior Assistant exam is one of the most sought-after government jobs in Jammu & Kashmir. Here is the complete topic-wise syllabus to help you prepare effectively.</p>
+      <h3>📌 Exam Pattern</h3>
+      <ul>
+        <li>Total Questions: 120 | Total Marks: 120</li>
+        <li>Duration: 2 Hours | Negative Marking: No</li>
+        <li>Mode: OMR Based Offline Test</li>
+      </ul>
+      <h3>📚 Subject-wise Syllabus</h3>
+      <h3>1. General English (30 Marks)</h3>
+      <ul>
+        <li>Grammar – Tenses, Articles, Prepositions, Voice, Narration</li>
+        <li>Vocabulary – Synonyms, Antonyms, One Word Substitution</li>
+        <li>Comprehension Passages</li>
+        <li>Sentence Correction & Fill in the Blanks</li>
+      </ul>
+      <h3>2. Quantitative Aptitude (30 Marks)</h3>
+      <ul>
+        <li>Number System, LCM & HCF, Simplification</li>
+        <li>Percentage, Profit & Loss, Simple & Compound Interest</li>
+        <li>Time & Work, Speed-Distance-Time</li>
+        <li>Ratio & Proportion, Average, Mensuration</li>
+      </ul>
+      <h3>3. General Knowledge (40 Marks)</h3>
+      <ul>
+        <li>History, Geography & Culture of J&K</li>
+        <li>National & International Current Affairs</li>
+        <li>Indian Constitution & Polity</li>
+        <li>Science & Technology, Sports, Awards</li>
+      </ul>
+      <h3>4. Computer Awareness (20 Marks)</h3>
+      <ul>
+        <li>MS Office – Word, Excel, PowerPoint</li>
+        <li>Internet Basics, Email, Operating System</li>
+        <li>Computer Hardware & Software fundamentals</li>
+      </ul>
+      <div class="highlight">💡 <strong>Pro Tip:</strong> Focus more on J&K GK and Computer Awareness — these two sections are the highest scoring areas in JKSSB Junior Assistant exam.</div>
+    `
+  },
+  {
+    emoji:'📊', bg:'bg2', cat:'SSC', date:'March 8, 2025',
+    title:'SSC CGL 2025 Notification – Dates, Eligibility & Complete Syllabus',
+    content:`
+      <p>SSC CGL 2025 is one of the most competitive central government exams. Here are all the important details you need to know.</p>
+      <h3>📅 Important Dates</h3>
+      <ul>
+        <li>Notification Release: March 2025 (Expected)</li>
+        <li>Application Start: March-April 2025</li>
+        <li>Tier 1 Exam: June-July 2025</li>
+        <li>Tier 2 Exam: September-October 2025</li>
+      </ul>
+      <h3>✅ Eligibility Criteria</h3>
+      <ul>
+        <li>Age: 18-32 years (relaxation for SC/ST/OBC)</li>
+        <li>Education: Graduate from any recognised university</li>
+        <li>Nationality: Indian Citizen</li>
+      </ul>
+      <h3>📚 Exam Pattern – Tier 1 (CBT)</h3>
+      <ul>
+        <li>General Intelligence & Reasoning – 25 Questions</li>
+        <li>General Awareness – 25 Questions</li>
+        <li>Quantitative Aptitude – 25 Questions</li>
+        <li>English Comprehension – 25 Questions</li>
+        <li>Total: 100 Questions | 200 Marks | 60 Minutes</li>
+      </ul>
+      <div class="highlight">💡 <strong>Pro Tip:</strong> Negative marking of 0.5 marks applies in Tier 1. Attempt only questions you are confident about.</div>
+      <h3>🎯 Top Posts Under SSC CGL</h3>
+      <ul>
+        <li>Assistant Section Officer (CSS, MEA, AFHQ)</li>
+        <li>Income Tax Inspector, Central Excise Inspector</li>
+        <li>Assistant Audit Officer, Sub-Inspector (CBI, NIA)</li>
+        <li>Junior Statistical Officer (JSO)</li>
+      </ul>
+    `
+  },
+  {
+    emoji:'🏦', bg:'bg3', cat:'BANK', date:'March 5, 2025',
+    title:'How to Prepare for BANK PO in 3 Months – Complete Strategy',
+    content:`
+      <p>Cracking BANK PO in just 3 months is absolutely possible with the right strategy. Here is your month-by-month plan.</p>
+      <h3>📅 Month 1 – Foundation Building</h3>
+      <ul>
+        <li><strong>Quant:</strong> Number System, Simplification, Percentage, Profit & Loss, Ratio</li>
+        <li><strong>Reasoning:</strong> Puzzles, Seating Arrangement, Syllogism, Coding-Decoding</li>
+        <li><strong>English:</strong> Grammar rules, Reading Comprehension basics</li>
+        <li><strong>GA:</strong> Start reading newspaper daily (The Hindu/Indian Express)</li>
+      </ul>
+      <h3>📅 Month 2 – Advanced Topics</h3>
+      <ul>
+        <li><strong>Quant:</strong> DI, Time & Work, Speed, Mensuration</li>
+        <li><strong>Reasoning:</strong> Data Sufficiency, Input-Output, Blood Relations</li>
+        <li><strong>English:</strong> Error detection, Para jumbles, Cloze test</li>
+        <li><strong>GA:</strong> Banking Awareness, RBI, Financial terms</li>
+      </ul>
+      <h3>📅 Month 3 – Revision & Mock Tests</h3>
+      <ul>
+        <li>Give 2 full mock tests every week</li>
+        <li>Analyze each mock test thoroughly</li>
+        <li>Work on weak areas identified</li>
+        <li>Focus on speed and accuracy</li>
+      </ul>
+      <div class="highlight">💡 <strong>Golden Rule:</strong> Mock tests are more important than studying. In Month 3, spend 60% time on mock tests and 40% on revision.</div>
+    `
+  },
+  {
+    emoji:'🌍', bg:'bg4', cat:'Current Affairs', date:'March 3, 2025',
+    title:'March 2025 Monthly Current Affairs – JKSSB, SSC & BANK Special',
+    content:`
+      <p>Here are the most important current affairs of March 2025 compiled especially for competitive exam aspirants.</p>
+      <h3>🏛️ National Affairs</h3>
+      <ul>
+        <li>Union Budget 2025-26 key highlights and allocations</li>
+        <li>New education policy implementation updates</li>
+        <li>Major infrastructure projects launched in J&K</li>
+        <li>National Science Day celebrated – February 28</li>
+      </ul>
+      <h3>🌐 International Affairs</h3>
+      <ul>
+        <li>G20 Summit preparations and India's role</li>
+        <li>India-US bilateral trade agreement updates</li>
+        <li>United Nations Security Council developments</li>
+      </ul>
+      <h3>💰 Economy & Banking</h3>
+      <ul>
+        <li>RBI Monetary Policy Committee decisions – Repo Rate updates</li>
+        <li>India's GDP growth rate for Q3 FY2025</li>
+        <li>New bank merger and acquisition news</li>
+        <li>Digital rupee pilot expansion updates</li>
+      </ul>
+      <h3>🏆 Sports</h3>
+      <ul>
+        <li>ICC Champions Trophy 2025 results</li>
+        <li>India's performance in international tournaments</li>
+        <li>Khelo India Winter Games 2025 – J&K Edition</li>
+      </ul>
+      <div class="highlight">💡 <strong>Exam Tip:</strong> For JKSSB exams, always pay extra attention to J&K-specific current affairs. These carry significant weightage in GK section.</div>
+    `
+  },
+  {
+    emoji:'📜', bg:'bg5', cat:'JKPSC', date:'Feb 28, 2025',
+    title:'JKPSC CCE 2025 – Syllabus, Pattern & How to Start Preparation',
+    content:`
+      <p>JKPSC Combined Competitive Examination is the gateway to Class-A gazetted posts in Jammu & Kashmir. Here is your complete guide.</p>
+      <h3>📋 Exam Structure</h3>
+      <ul>
+        <li><strong>Stage 1:</strong> Preliminary Examination (Objective)</li>
+        <li><strong>Stage 2:</strong> Main Examination (Descriptive)</li>
+        <li><strong>Stage 3:</strong> Personality Test / Interview</li>
+      </ul>
+      <h3>📚 Prelims Syllabus</h3>
+      <ul>
+        <li>Paper 1 – General Studies (200 marks, 2 hours)</li>
+        <li>Paper 2 – CSAT/Aptitude (200 marks, 2 hours) – Qualifying</li>
+        <li>Topics: History, Geography, Polity, Economy, Science, Current Affairs, J&K Affairs</li>
+      </ul>
+      <h3>📝 Mains Syllabus (9 Papers)</h3>
+      <ul>
+        <li>Essay, GS Papers I-IV</li>
+        <li>2 Optional Subject Papers</li>
+        <li>Language Papers (Qualifying)</li>
+      </ul>
+      <h3>🎯 How to Start Preparation</h3>
+      <ul>
+        <li>Step 1: Download official JKPSC syllabus and notification</li>
+        <li>Step 2: Get standard books – NCERT (6-12), Laxmikanth, Spectrum</li>
+        <li>Step 3: Make notes for J&K History, Geography and Culture</li>
+        <li>Step 4: Read newspaper daily and maintain current affairs notes</li>
+        <li>Step 5: Solve previous year question papers</li>
+      </ul>
+      <div class="highlight">💡 <strong>Key Focus:</strong> J&K specific topics (History, Geography, Art & Culture, Constitutional provisions) are very important for JKPSC. Dedicate at least 30% of your study time to these.</div>
+    `
+  },
+  {
+    emoji:'💡', bg:'bg6', cat:'Study Tips', date:'Feb 24, 2025',
+    title:'10 Proven Study Techniques to Score High in Government Exams 2025',
+    content:`
+      <p>These 10 techniques are used by toppers who cracked JKSSB, SSC and BANK exams in their first attempt.</p>
+      <h3>1. 📅 Make a Realistic Timetable</h3>
+      <p>Divide your day into 3 sessions. Study difficult subjects when your energy is highest (usually morning).</p>
+      <h3>2. 📝 Active Recall > Passive Reading</h3>
+      <p>After reading a topic, close the book and try to recall everything. This builds stronger memory than re-reading.</p>
+      <h3>3. 🔁 Spaced Repetition</h3>
+      <p>Revise topics after 1 day, 3 days, 7 days, and 21 days. This technique dramatically improves long-term retention.</p>
+      <h3>4. ⏱️ Pomodoro Technique</h3>
+      <p>Study for 25 minutes, take 5-minute break. After 4 sessions, take a 20-minute break. Maintains high focus.</p>
+      <h3>5. 📊 Mock Test Analysis</h3>
+      <p>Don't just give mock tests — analyze every wrong answer. Understanding WHY you got it wrong is more valuable than the score.</p>
+      <h3>6. 🗒️ Short Notes Making</h3>
+      <p>Make 1-page notes for each topic. These become invaluable during last-week revision before exam.</p>
+      <h3>7. 📱 Limit Social Media</h3>
+      <p>Use app timers to limit social media to 30 min/day. Distraction is the biggest enemy of exam preparation.</p>
+      <h3>8. 😴 Sleep 7-8 Hours</h3>
+      <p>Sleep is when your brain consolidates memory. Sacrificing sleep for studying actually reduces performance.</p>
+      <h3>9. 👥 Study Groups</h3>
+      <p>Teaching others is the best way to learn. Explain topics to study partners to solidify your own understanding.</p>
+      <h3>10. 🎯 Exam-specific Strategy</h3>
+      <p>For JKSSB: Focus on J&K GK. For SSC: Speed + Accuracy. For BANK: Daily DI practice. Tailor your prep to the specific exam.</p>
+      <div class="highlight">💡 <strong>Most Important:</strong> Consistency beats intensity. 4 hours of focused study every day is far better than 12 hours on weekends.</div>
+    `
+  }
+];
+
+// ══ MODAL FUNCTIONS ══
+var heroBGs = {
+  bg1:'linear-gradient(135deg,#b91c1c,#7f1d1d)',
+  bg2:'linear-gradient(135deg,#1e3a5f,#1d4ed8)',
+  bg3:'linear-gradient(135deg,#92400e,#d97706)',
+  bg4:'linear-gradient(135deg,#14532d,#15803d)',
+  bg5:'linear-gradient(135deg,#581c87,#be185d)',
+  bg6:'linear-gradient(135deg,#1a1a2e,#1e40af)'
+};
+
+function openBlog(idx){
+  var b = BLOGS[idx];
+  var hero = document.getElementById('mHero');
+  hero.style.background = heroBGs[b.bg];
+  hero.innerHTML = '<span style="font-size:4rem">'+b.emoji+'</span>'
+    +'<div class="modal-cat-badge">'+b.cat+'</div>'
+    +'<div class="modal-date-badge">📅 '+b.date+'</div>';
+  document.getElementById('mTitle').textContent   = b.title;
+  document.getElementById('mDate').textContent    = b.date;
+  document.getElementById('mContent').innerHTML   = b.content;
+  document.getElementById('blogModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeBlogModal(){
+  document.getElementById('blogModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeModal(e){
+  if(e.target === document.getElementById('blogModal')) closeBlogModal();
+}
+// ESC key closes modal
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeBlogModal(); });
 function showPage(id, el){
   document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('on'); });
   document.querySelectorAll('.tab').forEach(function(t){ t.classList.remove('on'); });
